@@ -1,5 +1,3 @@
-use std::cmp::PartialEq;
-
 struct Ticket {
     title: String,
     description: String,
@@ -8,16 +6,25 @@ struct Ticket {
 
 // TODO: Implement the `PartialEq` trait for `Ticket`.
 
-impl PartialEq for Ticket {
-    fn eq(&self, other: &Self) -> bool {
-        if self.title == other.title
+// impl PartialEq for Ticket {
+//     fn eq(&self, other: &Self) -> bool {
+//         if self.title == other.title
+//             && self.description == other.description
+//             && self.status == other.status
+//         {
+//             true
+//         } else {
+//             false
+//         }
+//     }
+// }
+#[automatically_derived]
+impl ::core::cmp::PartialEq for Ticket {
+    #[inline]
+    fn eq(&self, other: &Ticket) -> bool {
+        self.title == other.title
             && self.description == other.description
             && self.status == other.status
-        {
-            true
-        } else {
-            false
-        }
     }
 }
 
